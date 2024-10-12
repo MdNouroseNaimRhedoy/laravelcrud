@@ -22,6 +22,10 @@
             <a href="/create" class="bg-green-600 text-white rounded by py-2 px-4">Add New Post</a>
         </div> 
     </div>
+    @if( session('success') )
+        <h2 class="text-green-600">{{ session('success') }}</h2>
+     
+    @endif
     
     
 </body>

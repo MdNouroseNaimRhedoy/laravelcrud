@@ -22,6 +22,6 @@ class PostController extends Controller
         $post->save();
         
         #return redirect()->back();
-        return redirect()->route('home');
+        return redirect()->route('home')->with("success", "Your Post has been added.");
     }
 }
