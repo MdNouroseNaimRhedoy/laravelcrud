@@ -17,7 +17,7 @@ class PostController extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'image' => 'nullable|mimes:jpeg,png,JPEG,jpg,JPG'
+            'image' => 'nullable|mimes:jpeg,png,JPEG,jpg,JPG,HEIF,heic,HEIC'
         ]);
 
         //Image Uploading
@@ -74,5 +74,15 @@ class PostController extends Controller
         #return redirect()->back();
         return redirect()->route('home')->with("success", "Your Post has been Updated.");
     
+    }
+
+
+    public function deleteData($id){
+        $post = Post::findOrFail($id);
+
+        $post->delete();
+        return redirect()->route('home')->with("success", "Your Post has been Deleted.");
+    
+
     }
 }

@@ -49,7 +49,7 @@
                           <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"> <img src="images/{{$post->image}}" width="80px" alt="null"></td>
                           <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
                             <a href="{{route('edit',$post->id)}}" class="bg-green-600 text-white rounded by py-2 px-4">Edit</a>
-                            <a href="" class="bg-green-600 text-white rounded by py-2 px-4">Delete</a>
+                            <a href=" {{route('delete',$post->id)}} " class="bg-green-600 text-white rounded by py-2 px-4">Delete</a>
                           </td>
                         </tr>
                       @endforeach
