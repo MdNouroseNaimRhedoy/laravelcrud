@@ -12,6 +12,13 @@ class PostController extends Controller
     }
 
     public function filestore(Request $request){
+
+        //Validation 
+        $validated = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'image' => 'nullable|mimes:jpeg,png'
+        ]);
         //model initiate kora lagbe
         $post = new Post;
 

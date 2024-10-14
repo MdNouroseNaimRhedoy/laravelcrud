@@ -28,12 +28,22 @@
                 <div class="flex flex-col gap-5">
                     <label for="name">Name</label>
                     <input type="text" name="name">
+                    @error('name')
+                        <p class="text-red-600">{{$message}}</p>
+                    @enderror
 
                     <label for="description">Description</label>
                     <input type="text" name="description">
+                    @error('description')
+                        <p class="text-red-600"> {{$message}} </p>
+                    @enderror
 
                     <label for="image">Select Images</label>
                     <input type="file" name="image" id="">
+                    @error('image')
+                        <p class="text-red-600 bold"> {{$message}} </p>
+                    @enderror
+
                     <div>
                         <input type="submit" class="bg-green-600 text-white rounded by py-2 px-4">
                     </div>
