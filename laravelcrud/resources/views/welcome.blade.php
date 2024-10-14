@@ -9,7 +9,7 @@
         @layer utilities {
           .container{
             @apply px-10 mx-auto;
-          }
+          }      
         }
       </style>
     <title>Document</title>
@@ -19,13 +19,11 @@
        <div class="flex justify-between">
             <h1 class="text-red-500 text-xl font-bold underline">Home</h1>
         
-            <a href="/create" class="bg-green-600 text-white rounded by py-2 px-4">Add New Post</a>
+            <a href="/create" class="bg-green-600 text-white rounded by py-2 px-4 ">Add New Post</a>
         </div> 
-          @if( session('success') )
-            <h2 class="text-green-600">{{ session('success') }}</h2>
-          @endif
-
-          
+        @if( session('success') )
+          <h2 class="text-green-600">{{ session('success') }}</h2>
+        @endif  
 
         <div class="">
           <div class="flex flex-col">
@@ -50,12 +48,11 @@
                           <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"> {{$post->description}} </td>
                           <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"> <img src="images/{{$post->image}}" width="80px" alt="null"></td>
                           <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                            <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none">Edit</button>
-                            <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none">Delete</button>
+                            <a href="{{route('edit',$post->id)}}" class="bg-green-600 text-white rounded by py-2 px-4">Edit</a>
+                            <a href="" class="bg-green-600 text-white rounded by py-2 px-4">Delete</a>
                           </td>
-                        @endforeach
-
-                      </tr>
+                        </tr>
+                      @endforeach
                     </tbody>
                   </table>
                 </div>
@@ -64,9 +61,7 @@
           </div>
         </div>
 
-    </div>
-    
-    
+    </div> 
     
 </body>
 </html>
