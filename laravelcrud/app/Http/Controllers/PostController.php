@@ -17,14 +17,24 @@ class PostController extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'image' => 'nullable|mimes:jpeg,png'
+            'image' => 'nullable|mimes:jpeg,png,JPEG,jpg,JPG'
         ]);
+
+        //Image Uploading
+        $imageName = null;
+        if ($request->image) {
+            $imageName = time().'.'.$request->image->extension();
+            //store image in public folder local
+            $request->image->move(public_path('images'),$imageName);
+        }
+        
+
         //model initiate kora lagbe
         $post = new Post;
 
         $post->name = $request->name;
         $post->description = $request->description;
-        $post->image = $request->image;
+        $post->image = $imageName ;
 
         $post->save();
         
